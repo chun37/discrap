@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Example", type: :request do
+RSpec.describe "JsonResponseExample", type: :request do
   describe "GET /api/v1/example" do
     it "res code 200" do
       get "/api/v1/example"
