@@ -19,9 +19,22 @@ services:
     depends_on:
       - db
 
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    volumes:
+      - ./web/:/usr/src/app/
+      - /usr/src/app/.next
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rails
+
   nginx:
     image: nginx
     ports:
       - 1337:80
     depends_on:
       - rails
+      - web
